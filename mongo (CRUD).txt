@@ -1,0 +1,122 @@
+> use assignment
+switched to db assignment
+> show collections
+> db.createCollections("users")
+uncaught exception: TypeError: db.createCollections is not a function :
+@(shell):1:1
+> db.createCollections('users')
+uncaught exception: TypeError: db.createCollections is not a function :
+@(shell):1:1
+> db.createCollection('users')
+{ "ok" : 1 }
+> db.users.insert({"first_name":"Rasheed","last_name":"Ahmed","email":"abdul@gamil.com","gender":"male","ip_address":"dont_know","age":15})
+WriteResult({ "nInserted" : 1 })
+> db.user.find({})
+> show collections
+users
+> db.users.find({})
+{ "_id" : ObjectId("62262681eef8bff0161e21b9"), "first_name" : "Rasheed", "last_name" : "Ahmed", "email" : "abdul@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 15 }
+> db.users.insert({"first_name":"Ras","last_name":"Ahmed","email":"ras@gamil.com","gender":"male","ip_address":"dont_know","age":14}
+... db.users.insert({"first_name":"Ras","last_name":"Ahmed","email":"ras@gamil.com","gender":"male","ip_address":"dont_know","age":14})
+... show collections
+...
+...
+>
+>
+> db.users.insert({"first_name":"Ras","last_name":"Ahmed","email":"ras@gamil.com","gender":"male","ip_address":"dont_know","age":14})
+WriteResult({ "nInserted" : 1 })
+> db.users.insert({"first_name":"Rash","last_name":"Ahmed","email":"rash@gamil.com","gender":"male","ip_address":"dont_know","age":13})
+WriteResult({ "nInserted" : 1 })
+> db.users.insert({"first_name":"hash","last_name":"Ahmed","email":"hash@gamil.com","gender":"male","ip_address":"dont_know","age":12})
+WriteResult({ "nInserted" : 1 })
+> db.users.insert({"first_name":"ten","last_name":"bg","email":"rab@gamil.com","gender":"female","ip_address":"dont_know","age":11})
+WriteResult({ "nInserted" : 1 })
+> db.users.insert({"first_name":"sam","last_name":"smdhaya","email":"sampradaya@gamil.com","gender":"female","ip_address":"dont_know","age":10})
+WriteResult({ "nInserted" : 1 })
+> db.users.insert({"first_name":"mas","last_name":"dhaya","email":"radaya@gamil.com","gender":"male","ip_address":"dont_know","age":9})
+WriteResult({ "nInserted" : 1 })
+> db.users.insert({"first_name":"masara","last_name":"dhaa","email":"rad@gamil.com","gender":"female","ip_address":"dont_know","age":8})
+WriteResult({ "nInserted" : 1 })
+> db.users.insert({"first_name":"radish","last_name":"radish","email":"radish@gamil.com","gender":"male","ip_address":"dont_know","age":5})
+WriteResult({ "nInserted" : 1 })
+> show collections
+users
+> db.users.find({})
+{ "_id" : ObjectId("62262681eef8bff0161e21b9"), "first_name" : "Rasheed", "last_name" : "Ahmed", "email" : "abdul@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 15 }
+{ "_id" : ObjectId("622627b7eef8bff0161e21ba"), "first_name" : "Ras", "last_name" : "Ahmed", "email" : "ras@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 14 }
+{ "_id" : ObjectId("622627caeef8bff0161e21bb"), "first_name" : "Rash", "last_name" : "Ahmed", "email" : "rash@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 13 }
+{ "_id" : ObjectId("622627dceef8bff0161e21bc"), "first_name" : "hash", "last_name" : "Ahmed", "email" : "hash@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 12 }
+{ "_id" : ObjectId("62262818eef8bff0161e21bd"), "first_name" : "ten", "last_name" : "bg", "email" : "rab@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 11 }
+{ "_id" : ObjectId("6226283eeef8bff0161e21be"), "first_name" : "sam", "last_name" : "smdhaya", "email" : "sampradaya@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 10 }
+{ "_id" : ObjectId("62262853eef8bff0161e21bf"), "first_name" : "mas", "last_name" : "dhaya", "email" : "radaya@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 9 }
+{ "_id" : ObjectId("62262870eef8bff0161e21c0"), "first_name" : "masara", "last_name" : "dhaa", "email" : "rad@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 8 }
+{ "_id" : ObjectId("62262890eef8bff0161e21c1"), "first_name" : "radish", "last_name" : "radish", "email" : "radish@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 5 }
+> db.users.insert({"first_name":"lobby","last_name":"happy","email":"lob@mail.com","gender":"others","ip_address":"1245","age":48})
+WriteResult({ "nInserted" : 1 })
+> db.users.find({})
+{ "_id" : ObjectId("62262681eef8bff0161e21b9"), "first_name" : "Rasheed", "last_name" : "Ahmed", "email" : "abdul@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 15 }
+{ "_id" : ObjectId("622627b7eef8bff0161e21ba"), "first_name" : "Ras", "last_name" : "Ahmed", "email" : "ras@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 14 }
+{ "_id" : ObjectId("622627caeef8bff0161e21bb"), "first_name" : "Rash", "last_name" : "Ahmed", "email" : "rash@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 13 }
+{ "_id" : ObjectId("622627dceef8bff0161e21bc"), "first_name" : "hash", "last_name" : "Ahmed", "email" : "hash@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 12 }
+{ "_id" : ObjectId("62262818eef8bff0161e21bd"), "first_name" : "ten", "last_name" : "bg", "email" : "rab@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 11 }
+{ "_id" : ObjectId("6226283eeef8bff0161e21be"), "first_name" : "sam", "last_name" : "smdhaya", "email" : "sampradaya@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 10 }
+{ "_id" : ObjectId("62262853eef8bff0161e21bf"), "first_name" : "mas", "last_name" : "dhaya", "email" : "radaya@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 9 }
+{ "_id" : ObjectId("62262870eef8bff0161e21c0"), "first_name" : "masara", "last_name" : "dhaa", "email" : "rad@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 8 }
+{ "_id" : ObjectId("62262890eef8bff0161e21c1"), "first_name" : "radish", "last_name" : "radish", "email" : "radish@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 5 }
+{ "_id" : ObjectId("6226296eeef8bff0161e21c2"), "first_name" : "lobby", "last_name" : "happy", "email" : "lob@mail.com", "gender" : "others", "ip_address" : "1245", "age" : 48 }
+> db.users.find({"age":12})
+{ "_id" : ObjectId("622627dceef8bff0161e21bc"), "first_name" : "hash", "last_name" : "Ahmed", "email" : "hash@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 12 }
+> db.users.update({"age":12},{$set : {"first_name":"hasheed"}})
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+> db.users.find({"age":12})
+{ "_id" : ObjectId("622627dceef8bff0161e21bc"), "first_name" : "hasheed", "last_name" : "Ahmed", "email" : "hash@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 12 }
+> db.users.updatemany({"gender":"male"},{$set : {"height":12.5}})
+uncaught exception: TypeError: db.users.updatemany is not a function :
+@(shell):1:1
+> db.users.updateMany({"gender":"male"},{$set : {"height":12.5}})
+{ "acknowledged" : true, "matchedCount" : 6, "modifiedCount" : 6 }
+> db.users.find({})
+{ "_id" : ObjectId("62262681eef8bff0161e21b9"), "first_name" : "Rasheed", "last_name" : "Ahmed", "email" : "abdul@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 15, "height" : 12.5 }
+{ "_id" : ObjectId("622627b7eef8bff0161e21ba"), "first_name" : "Ras", "last_name" : "Ahmed", "email" : "ras@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 14, "height" : 12.5 }
+{ "_id" : ObjectId("622627caeef8bff0161e21bb"), "first_name" : "Rash", "last_name" : "Ahmed", "email" : "rash@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 13, "height" : 12.5 }
+{ "_id" : ObjectId("622627dceef8bff0161e21bc"), "first_name" : "hasheed", "last_name" : "Ahmed", "email" : "hash@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 12, "height" : 12.5 }
+{ "_id" : ObjectId("62262818eef8bff0161e21bd"), "first_name" : "ten", "last_name" : "bg", "email" : "rab@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 11 }
+{ "_id" : ObjectId("6226283eeef8bff0161e21be"), "first_name" : "sam", "last_name" : "smdhaya", "email" : "sampradaya@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 10 }
+{ "_id" : ObjectId("62262853eef8bff0161e21bf"), "first_name" : "mas", "last_name" : "dhaya", "email" : "radaya@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 9, "height" : 12.5 }
+{ "_id" : ObjectId("62262870eef8bff0161e21c0"), "first_name" : "masara", "last_name" : "dhaa", "email" : "rad@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 8 }
+{ "_id" : ObjectId("62262890eef8bff0161e21c1"), "first_name" : "radish", "last_name" : "radish", "email" : "radish@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 5, "height" : 12.5 }
+{ "_id" : ObjectId("6226296eeef8bff0161e21c2"), "first_name" : "lobby", "last_name" : "happy", "email" : "lob@mail.com", "gender" : "others", "ip_address" : "1245", "age" : 48 }
+> db.users.remove({"last_name":"happy"})
+WriteResult({ "nRemoved" : 1 })
+> db.users.find({})
+{ "_id" : ObjectId("62262681eef8bff0161e21b9"), "first_name" : "Rasheed", "last_name" : "Ahmed", "email" : "abdul@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 15, "height" : 12.5 }
+{ "_id" : ObjectId("622627b7eef8bff0161e21ba"), "first_name" : "Ras", "last_name" : "Ahmed", "email" : "ras@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 14, "height" : 12.5 }
+{ "_id" : ObjectId("622627caeef8bff0161e21bb"), "first_name" : "Rash", "last_name" : "Ahmed", "email" : "rash@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 13, "height" : 12.5 }
+{ "_id" : ObjectId("622627dceef8bff0161e21bc"), "first_name" : "hasheed", "last_name" : "Ahmed", "email" : "hash@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 12, "height" : 12.5 }
+{ "_id" : ObjectId("62262818eef8bff0161e21bd"), "first_name" : "ten", "last_name" : "bg", "email" : "rab@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 11 }
+{ "_id" : ObjectId("6226283eeef8bff0161e21be"), "first_name" : "sam", "last_name" : "smdhaya", "email" : "sampradaya@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 10 }
+{ "_id" : ObjectId("62262853eef8bff0161e21bf"), "first_name" : "mas", "last_name" : "dhaya", "email" : "radaya@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 9, "height" : 12.5 }
+{ "_id" : ObjectId("62262870eef8bff0161e21c0"), "first_name" : "masara", "last_name" : "dhaa", "email" : "rad@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 8 }
+{ "_id" : ObjectId("62262890eef8bff0161e21c1"), "first_name" : "radish", "last_name" : "radish", "email" : "radish@gamil.com", "gender" : "male", "ip_address" : "dont_know", "age" : 5, "height" : 12.5 }
+> db.users.remove({"height":"12.5"})
+WriteResult({ "nRemoved" : 0 })
+> db.users.remove({"height":12.5})
+WriteResult({ "nRemoved" : 6 })
+> db.users.find({})
+{ "_id" : ObjectId("62262818eef8bff0161e21bd"), "first_name" : "ten", "last_name" : "bg", "email" : "rab@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 11 }
+{ "_id" : ObjectId("6226283eeef8bff0161e21be"), "first_name" : "sam", "last_name" : "smdhaya", "email" : "sampradaya@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 10 }
+{ "_id" : ObjectId("62262870eef8bff0161e21c0"), "first_name" : "masara", "last_name" : "dhaa", "email" : "rad@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 8 }
+> db.users.delete({"age":8})
+uncaught exception: TypeError: db.users.delete is not a function :
+@(shell):1:1
+> db.users.removeMany({"ip_address":"dont_know"})
+uncaught exception: TypeError: db.users.removeMany is not a function :
+@(shell):1:1
+> db.users.deleteOne({"age":8})
+{ "acknowledged" : true, "deletedCount" : 1 }
+> db.users.find({})
+{ "_id" : ObjectId("62262818eef8bff0161e21bd"), "first_name" : "ten", "last_name" : "bg", "email" : "rab@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 11 }
+{ "_id" : ObjectId("6226283eeef8bff0161e21be"), "first_name" : "sam", "last_name" : "smdhaya", "email" : "sampradaya@gamil.com", "gender" : "female", "ip_address" : "dont_know", "age" : 10 }
+> db.users.deleteMany({})
+{ "acknowledged" : true, "deletedCount" : 2 }
+> db.user.find({})
