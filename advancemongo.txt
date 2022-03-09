@@ -1,0 +1,257 @@
+> db
+test
+> use mock
+switched to db mock
+> db.showCollections()
+uncaught exception: TypeError: db.showCollections is not a function :
+@(shell):1:1
+> db.showCollections({})
+uncaught exception: TypeError: db.showCollections is not a function :
+@(shell):1:1
+> db.showCollection({})
+uncaught exception: TypeError: db.showCollection is not a function :
+@(shell):1:1
+> show collections
+movies_table
+> db.movies_table.find({})
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47b"), "movie_name" : "Monster in the Closet", "movie_genere" : "Comedy|Horror", "production_year" : 2012 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47c"), "movie_name" : "Brotherhood of Justice, The", "movie_genere" : "Action|Drama|Thriller", "production_year" : 1996 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47d"), "movie_name" : "Cast a Giant Shadow", "movie_genere" : "Adventure|War", "production_year" : 2005 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47e"), "movie_name" : "Alien Cargo", "movie_genere" : "Sci-Fi", "production_year" : 2009 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47f"), "movie_name" : "Sabrina", "movie_genere" : "Comedy|Romance", "production_year" : 2002 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc480"), "movie_name" : "Mortified Nation", "movie_genere" : "Comedy|Documentary", "production_year" : 2000 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc481"), "movie_name" : "Kumiko, the Treasure Hunter", "movie_genere" : "Comedy|Drama", "production_year" : 1992 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc482"), "movie_name" : "Rocket, The", "movie_genere" : "Drama", "production_year" : 2010 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc483"), "movie_name" : "Frozen River", "movie_genere" : "Drama", "production_year" : 2000 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc484"), "movie_name" : "Soldier's Tale, A", "movie_genere" : "Drama|Romance|War", "production_year" : 1987 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc485"), "movie_name" : "Loser", "movie_genere" : "Comedy", "production_year" : 2011 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc486"), "movie_name" : "The Reverse", "movie_genere" : "Comedy|Drama|Romance|Thriller", "production_year" : 2009 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc487"), "movie_name" : "Battle: Los Angeles", "movie_genere" : "Action|Sci-Fi|War", "production_year" : 2010 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc488"), "movie_name" : "A Chairy Tale", "movie_genere" : "Animation|Comedy|Fantasy", "production_year" : 2006 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc489"), "movie_name" : "Widows", "movie_genere" : "Drama", "production_year" : 1996 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48a"), "movie_name" : "Uuno in Spain", "movie_genere" : "Comedy", "production_year" : 2003 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48b"), "movie_name" : "Bribe, The", "movie_genere" : "Drama|Film-Noir|Thriller", "production_year" : 1999 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48c"), "movie_name" : "Not Here to Be Loved (Je ne suis pas là pour être aimé)", "movie_genere" : "Drama|Romance", "production_year" : 1998 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48d"), "movie_name" : "I'm Crazy About Iris Blond", "movie_genere" : "Comedy|Romance", "production_year" : 2000 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48e"), "movie_name" : "Painting, The (Tableau, Le)", "movie_genere" : "Animation", "production_year" : 2009 }
+Type "it" for more
+> db.movies_table.find({movie_name:"Frozen River"})
+{ "_id" : ObjectId("62285decc3c532f9cc6dc483"), "movie_name" : "Frozen River", "movie_genere" : "Drama", "production_year" : 2000 }
+> db.movies_table.find(not:{movie_name:"Frozen River"})
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:24
+> db.movies_table.find($not:{movie_name:"Frozen River"})
+uncaught exception: SyntaxError: missing ) after argument list :
+@(shell):1:25
+> db.movies_table.find({movie_name:{$not:"Frozen River"}})
+Error: error: {
+        "ok" : 0,
+        "errmsg" : "$not needs a regex or a document",
+        "code" : 2,
+        "codeName" : "BadValue"
+}
+> db.movies_table.find({movie_name:{$not:{$eq:"Frozen River"}}})
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47b"), "movie_name" : "Monster in the Closet", "movie_genere" : "Comedy|Horror", "production_year" : 2012 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47c"), "movie_name" : "Brotherhood of Justice, The", "movie_genere" : "Action|Drama|Thriller", "production_year" : 1996 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47d"), "movie_name" : "Cast a Giant Shadow", "movie_genere" : "Adventure|War", "production_year" : 2005 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47e"), "movie_name" : "Alien Cargo", "movie_genere" : "Sci-Fi", "production_year" : 2009 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47f"), "movie_name" : "Sabrina", "movie_genere" : "Comedy|Romance", "production_year" : 2002 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc480"), "movie_name" : "Mortified Nation", "movie_genere" : "Comedy|Documentary", "production_year" : 2000 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc481"), "movie_name" : "Kumiko, the Treasure Hunter", "movie_genere" : "Comedy|Drama", "production_year" : 1992 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc482"), "movie_name" : "Rocket, The", "movie_genere" : "Drama", "production_year" : 2010 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc484"), "movie_name" : "Soldier's Tale, A", "movie_genere" : "Drama|Romance|War", "production_year" : 1987 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc485"), "movie_name" : "Loser", "movie_genere" : "Comedy", "production_year" : 2011 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc486"), "movie_name" : "The Reverse", "movie_genere" : "Comedy|Drama|Romance|Thriller", "production_year" : 2009 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc487"), "movie_name" : "Battle: Los Angeles", "movie_genere" : "Action|Sci-Fi|War", "production_year" : 2010 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc488"), "movie_name" : "A Chairy Tale", "movie_genere" : "Animation|Comedy|Fantasy", "production_year" : 2006 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc489"), "movie_name" : "Widows", "movie_genere" : "Drama", "production_year" : 1996 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48a"), "movie_name" : "Uuno in Spain", "movie_genere" : "Comedy", "production_year" : 2003 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48b"), "movie_name" : "Bribe, The", "movie_genere" : "Drama|Film-Noir|Thriller", "production_year" : 1999 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48c"), "movie_name" : "Not Here to Be Loved (Je ne suis pas là pour être aimé)", "movie_genere" : "Drama|Romance", "production_year" : 1998 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48d"), "movie_name" : "I'm Crazy About Iris Blond", "movie_genere" : "Comedy|Romance", "production_year" : 2000 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48e"), "movie_name" : "Painting, The (Tableau, Le)", "movie_genere" : "Animation", "production_year" : 2009 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48f"), "movie_name" : "[REC]³ 3 Génesis", "movie_genere" : "Horror|Thriller", "production_year" : 1994 }
+Type "it" for more
+> db.movies_table.find({movie_name:{$eq:"Frozen River"}})
+{ "_id" : ObjectId("62285decc3c532f9cc6dc483"), "movie_name" : "Frozen River", "movie_genere" : "Drama", "production_year" : 2000 }
+> db.movies_table.find({},{_id:0,movie_genere:0,}).limit(10)
+{ "movie_name" : "Monster in the Closet", "production_year" : 2012 }
+{ "movie_name" : "Brotherhood of Justice, The", "production_year" : 1996 }
+{ "movie_name" : "Cast a Giant Shadow", "production_year" : 2005 }
+{ "movie_name" : "Alien Cargo", "production_year" : 2009 }
+{ "movie_name" : "Sabrina", "production_year" : 2002 }
+{ "movie_name" : "Mortified Nation", "production_year" : 2000 }
+{ "movie_name" : "Kumiko, the Treasure Hunter", "production_year" : 1992 }
+{ "movie_name" : "Rocket, The", "production_year" : 2010 }
+{ "movie_name" : "Frozen River", "production_year" : 2000 }
+{ "movie_name" : "Soldier's Tale, A", "production_year" : 1987 }
+> db.movies_table.find({production_year:{$gt:2000},{_id:0,movie_genere:0,})
+...
+...
+> db.movies_table.find({production_year:{$gt:2000}}),{_id:0,movie_genere:0,})
+uncaught exception: SyntaxError: unexpected token: ')' :
+@(shell):1:74
+> db.movies_table.find({production_year:{$gt:2000}})
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47b"), "movie_name" : "Monster in the Closet", "movie_genere" : "Comedy|Horror", "production_year" : 2012 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47d"), "movie_name" : "Cast a Giant Shadow", "movie_genere" : "Adventure|War", "production_year" : 2005 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47e"), "movie_name" : "Alien Cargo", "movie_genere" : "Sci-Fi", "production_year" : 2009 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47f"), "movie_name" : "Sabrina", "movie_genere" : "Comedy|Romance", "production_year" : 2002 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc482"), "movie_name" : "Rocket, The", "movie_genere" : "Drama", "production_year" : 2010 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc485"), "movie_name" : "Loser", "movie_genere" : "Comedy", "production_year" : 2011 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc486"), "movie_name" : "The Reverse", "movie_genere" : "Comedy|Drama|Romance|Thriller", "production_year" : 2009 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc487"), "movie_name" : "Battle: Los Angeles", "movie_genere" : "Action|Sci-Fi|War", "production_year" : 2010 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc488"), "movie_name" : "A Chairy Tale", "movie_genere" : "Animation|Comedy|Fantasy", "production_year" : 2006 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48a"), "movie_name" : "Uuno in Spain", "movie_genere" : "Comedy", "production_year" : 2003 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48e"), "movie_name" : "Painting, The (Tableau, Le)", "movie_genere" : "Animation", "production_year" : 2009 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc490"), "movie_name" : "Farewell, Home Sweet Home (Adieu, plancher des vaches!)", "movie_genere" : "Comedy|Drama", "production_year" : 2009 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc491"), "movie_name" : "55 Days at Peking", "movie_genere" : "Drama|War", "production_year" : 2012 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc492"), "movie_name" : "Elf", "movie_genere" : "Children|Comedy|Fantasy", "production_year" : 2005 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc497"), "movie_name" : "Blonde Ambition", "movie_genere" : "Comedy|Romance", "production_year" : 2011 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc499"), "movie_name" : "(A)sexual", "movie_genere" : "Comedy|Documentary|Drama", "production_year" : 2006 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc49a"), "movie_name" : "Merchant of Venice, The", "movie_genere" : "Drama", "production_year" : 2013 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc49b"), "movie_name" : "October Baby", "movie_genere" : "Drama", "production_year" : 2008 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc49c"), "movie_name" : "Meet the Robinsons", "movie_genere" : "Action|Adventure|Animation|Children|Comedy|Sci-Fi", "production_year" : 2002 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc49d"), "movie_name" : "The Widow From Chicago", "movie_genere" : "Crime|Drama|Romance", "production_year" : 2005 }
+Type "it" for more
+> db.movies_table.find({production_year:{$gt:2000}}).({_id:0})
+uncaught exception: SyntaxError: missing name after . operator :
+@(shell):1:51
+> db.movies_table.find({production_year:{$gt:2000}}),({_id:0})
+{ "_id" : 0 }
+> db.movies_table.find({})
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47b"), "movie_name" : "Monster in the Closet", "movie_genere" : "Comedy|Horror", "production_year" : 2012 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47c"), "movie_name" : "Brotherhood of Justice, The", "movie_genere" : "Action|Drama|Thriller", "production_year" : 1996 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47d"), "movie_name" : "Cast a Giant Shadow", "movie_genere" : "Adventure|War", "production_year" : 2005 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47e"), "movie_name" : "Alien Cargo", "movie_genere" : "Sci-Fi", "production_year" : 2009 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc47f"), "movie_name" : "Sabrina", "movie_genere" : "Comedy|Romance", "production_year" : 2002 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc480"), "movie_name" : "Mortified Nation", "movie_genere" : "Comedy|Documentary", "production_year" : 2000 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc481"), "movie_name" : "Kumiko, the Treasure Hunter", "movie_genere" : "Comedy|Drama", "production_year" : 1992 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc482"), "movie_name" : "Rocket, The", "movie_genere" : "Drama", "production_year" : 2010 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc483"), "movie_name" : "Frozen River", "movie_genere" : "Drama", "production_year" : 2000 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc484"), "movie_name" : "Soldier's Tale, A", "movie_genere" : "Drama|Romance|War", "production_year" : 1987 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc485"), "movie_name" : "Loser", "movie_genere" : "Comedy", "production_year" : 2011 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc486"), "movie_name" : "The Reverse", "movie_genere" : "Comedy|Drama|Romance|Thriller", "production_year" : 2009 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc487"), "movie_name" : "Battle: Los Angeles", "movie_genere" : "Action|Sci-Fi|War", "production_year" : 2010 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc488"), "movie_name" : "A Chairy Tale", "movie_genere" : "Animation|Comedy|Fantasy", "production_year" : 2006 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc489"), "movie_name" : "Widows", "movie_genere" : "Drama", "production_year" : 1996 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48a"), "movie_name" : "Uuno in Spain", "movie_genere" : "Comedy", "production_year" : 2003 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48b"), "movie_name" : "Bribe, The", "movie_genere" : "Drama|Film-Noir|Thriller", "production_year" : 1999 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48c"), "movie_name" : "Not Here to Be Loved (Je ne suis pas là pour être aimé)", "movie_genere" : "Drama|Romance", "production_year" : 1998 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48d"), "movie_name" : "I'm Crazy About Iris Blond", "movie_genere" : "Comedy|Romance", "production_year" : 2000 }
+{ "_id" : ObjectId("62285decc3c532f9cc6dc48e"), "movie_name" : "Painting, The (Tableau, Le)", "movie_genere" : "Animation", "production_year" : 2009 }
+Type "it" for more
+> db.movies_table.find({production_year:{$gt:2000}},{_id:0})
+{ "movie_name" : "Monster in the Closet", "movie_genere" : "Comedy|Horror", "production_year" : 2012 }
+{ "movie_name" : "Cast a Giant Shadow", "movie_genere" : "Adventure|War", "production_year" : 2005 }
+{ "movie_name" : "Alien Cargo", "movie_genere" : "Sci-Fi", "production_year" : 2009 }
+{ "movie_name" : "Sabrina", "movie_genere" : "Comedy|Romance", "production_year" : 2002 }
+{ "movie_name" : "Rocket, The", "movie_genere" : "Drama", "production_year" : 2010 }
+{ "movie_name" : "Loser", "movie_genere" : "Comedy", "production_year" : 2011 }
+{ "movie_name" : "The Reverse", "movie_genere" : "Comedy|Drama|Romance|Thriller", "production_year" : 2009 }
+{ "movie_name" : "Battle: Los Angeles", "movie_genere" : "Action|Sci-Fi|War", "production_year" : 2010 }
+{ "movie_name" : "A Chairy Tale", "movie_genere" : "Animation|Comedy|Fantasy", "production_year" : 2006 }
+{ "movie_name" : "Uuno in Spain", "movie_genere" : "Comedy", "production_year" : 2003 }
+{ "movie_name" : "Painting, The (Tableau, Le)", "movie_genere" : "Animation", "production_year" : 2009 }
+{ "movie_name" : "Farewell, Home Sweet Home (Adieu, plancher des vaches!)", "movie_genere" : "Comedy|Drama", "production_year" : 2009 }
+{ "movie_name" : "55 Days at Peking", "movie_genere" : "Drama|War", "production_year" : 2012 }
+{ "movie_name" : "Elf", "movie_genere" : "Children|Comedy|Fantasy", "production_year" : 2005 }
+{ "movie_name" : "Blonde Ambition", "movie_genere" : "Comedy|Romance", "production_year" : 2011 }
+{ "movie_name" : "(A)sexual", "movie_genere" : "Comedy|Documentary|Drama", "production_year" : 2006 }
+{ "movie_name" : "Merchant of Venice, The", "movie_genere" : "Drama", "production_year" : 2013 }
+{ "movie_name" : "October Baby", "movie_genere" : "Drama", "production_year" : 2008 }
+{ "movie_name" : "Meet the Robinsons", "movie_genere" : "Action|Adventure|Animation|Children|Comedy|Sci-Fi", "production_year" : 2002 }
+{ "movie_name" : "The Widow From Chicago", "movie_genere" : "Crime|Drama|Romance", "production_year" : 2005 }
+Type "it" for more
+> db.movies_table.find({production_year:{$gt:2000}},{_id:0},{movie_genere:0})
+{ "movie_name" : "Monster in the Closet", "movie_genere" : "Comedy|Horror", "production_year" : 2012 }
+{ "movie_name" : "Cast a Giant Shadow", "movie_genere" : "Adventure|War", "production_year" : 2005 }
+{ "movie_name" : "Alien Cargo", "movie_genere" : "Sci-Fi", "production_year" : 2009 }
+{ "movie_name" : "Sabrina", "movie_genere" : "Comedy|Romance", "production_year" : 2002 }
+{ "movie_name" : "Rocket, The", "movie_genere" : "Drama", "production_year" : 2010 }
+{ "movie_name" : "Loser", "movie_genere" : "Comedy", "production_year" : 2011 }
+{ "movie_name" : "The Reverse", "movie_genere" : "Comedy|Drama|Romance|Thriller", "production_year" : 2009 }
+{ "movie_name" : "Battle: Los Angeles", "movie_genere" : "Action|Sci-Fi|War", "production_year" : 2010 }
+{ "movie_name" : "A Chairy Tale", "movie_genere" : "Animation|Comedy|Fantasy", "production_year" : 2006 }
+{ "movie_name" : "Uuno in Spain", "movie_genere" : "Comedy", "production_year" : 2003 }
+{ "movie_name" : "Painting, The (Tableau, Le)", "movie_genere" : "Animation", "production_year" : 2009 }
+{ "movie_name" : "Farewell, Home Sweet Home (Adieu, plancher des vaches!)", "movie_genere" : "Comedy|Drama", "production_year" : 2009 }
+{ "movie_name" : "55 Days at Peking", "movie_genere" : "Drama|War", "production_year" : 2012 }
+{ "movie_name" : "Elf", "movie_genere" : "Children|Comedy|Fantasy", "production_year" : 2005 }
+{ "movie_name" : "Blonde Ambition", "movie_genere" : "Comedy|Romance", "production_year" : 2011 }
+{ "movie_name" : "(A)sexual", "movie_genere" : "Comedy|Documentary|Drama", "production_year" : 2006 }
+{ "movie_name" : "Merchant of Venice, The", "movie_genere" : "Drama", "production_year" : 2013 }
+{ "movie_name" : "October Baby", "movie_genere" : "Drama", "production_year" : 2008 }
+{ "movie_name" : "Meet the Robinsons", "movie_genere" : "Action|Adventure|Animation|Children|Comedy|Sci-Fi", "production_year" : 2002 }
+{ "movie_name" : "The Widow From Chicago", "movie_genere" : "Crime|Drama|Romance", "production_year" : 2005 }
+Type "it" for more
+> db.movies_table.find({production_year:{$gt:2000}},{_id:0,movie_genere:0})
+{ "movie_name" : "Monster in the Closet", "production_year" : 2012 }
+{ "movie_name" : "Cast a Giant Shadow", "production_year" : 2005 }
+{ "movie_name" : "Alien Cargo", "production_year" : 2009 }
+{ "movie_name" : "Sabrina", "production_year" : 2002 }
+{ "movie_name" : "Rocket, The", "production_year" : 2010 }
+{ "movie_name" : "Loser", "production_year" : 2011 }
+{ "movie_name" : "The Reverse", "production_year" : 2009 }
+{ "movie_name" : "Battle: Los Angeles", "production_year" : 2010 }
+{ "movie_name" : "A Chairy Tale", "production_year" : 2006 }
+{ "movie_name" : "Uuno in Spain", "production_year" : 2003 }
+{ "movie_name" : "Painting, The (Tableau, Le)", "production_year" : 2009 }
+{ "movie_name" : "Farewell, Home Sweet Home (Adieu, plancher des vaches!)", "production_year" : 2009 }
+{ "movie_name" : "55 Days at Peking", "production_year" : 2012 }
+{ "movie_name" : "Elf", "production_year" : 2005 }
+{ "movie_name" : "Blonde Ambition", "production_year" : 2011 }
+{ "movie_name" : "(A)sexual", "production_year" : 2006 }
+{ "movie_name" : "Merchant of Venice, The", "production_year" : 2013 }
+{ "movie_name" : "October Baby", "production_year" : 2008 }
+{ "movie_name" : "Meet the Robinsons", "production_year" : 2002 }
+{ "movie_name" : "The Widow From Chicago", "production_year" : 2005 }
+Type "it" for more
+> db.movies_table.find({production_year:{$gt:2000}},{_id:0,movie_genere:0}).skip(5).limit(10)
+{ "movie_name" : "Loser", "production_year" : 2011 }
+{ "movie_name" : "The Reverse", "production_year" : 2009 }
+{ "movie_name" : "Battle: Los Angeles", "production_year" : 2010 }
+{ "movie_name" : "A Chairy Tale", "production_year" : 2006 }
+{ "movie_name" : "Uuno in Spain", "production_year" : 2003 }
+{ "movie_name" : "Painting, The (Tableau, Le)", "production_year" : 2009 }
+{ "movie_name" : "Farewell, Home Sweet Home (Adieu, plancher des vaches!)", "production_year" : 2009 }
+{ "movie_name" : "55 Days at Peking", "production_year" : 2012 }
+{ "movie_name" : "Elf", "production_year" : 2005 }
+{ "movie_name" : "Blonde Ambition", "production_year" : 2011 }
+> db.movies_table.find({production_year:{$and:{$gt:2000},{$lt:2010},{_id:0,movie_genere:0}).skip(5).limit(10)
+... db.movies_table.find({production_year:{$gt:2000}},{_id:0,movie_genere:0}).skip(5).limit(10)
+...
+...
+> db.movies_table.find({$and:[{production_year:{$gt:2000}},{production_year:{$lt:2010}}]},{_id:0,movie_genere:0}).skip(5).limit(10)
+{ "movie_name" : "Uuno in Spain", "production_year" : 2003 }
+{ "movie_name" : "Painting, The (Tableau, Le)", "production_year" : 2009 }
+{ "movie_name" : "Farewell, Home Sweet Home (Adieu, plancher des vaches!)", "production_year" : 2009 }
+{ "movie_name" : "Elf", "production_year" : 2005 }
+{ "movie_name" : "(A)sexual", "production_year" : 2006 }
+{ "movie_name" : "October Baby", "production_year" : 2008 }
+{ "movie_name" : "Meet the Robinsons", "production_year" : 2002 }
+{ "movie_name" : "The Widow From Chicago", "production_year" : 2005 }
+{ "movie_name" : "Some Folks Call It a Sling Blade", "production_year" : 2009 }
+{ "movie_name" : "Paris When It Sizzles", "production_year" : 2001 }
+> db.movies_table.find({$or:[{production_year:{$eq:2000}},{movie_name:{$eq:"Loser"}}]},{_id:0,movie_genere:0}).skip(5).limit(10)
+{ "movie_name" : "Juror, The", "production_year" : 2000 }
+{ "movie_name" : "Wild Is the Wind", "production_year" : 2000 }
+{ "movie_name" : "Madame Sin", "production_year" : 2000 }
+{ "movie_name" : "Lords of Salem, The", "production_year" : 2000 }
+{ "movie_name" : "Wake", "production_year" : 2000 }
+{ "movie_name" : "Madonna: Truth or Dare", "production_year" : 2000 }
+{ "movie_name" : "Lean on Me", "production_year" : 2000 }
+{ "movie_name" : "Ten Little Indians (Ein Unbekannter rechnet ab) (And Then There Were None)", "production_year" : 2000 }
+{ "movie_name" : "Rough Magic", "production_year" : 2000 }
+{ "movie_name" : "Tokyo Fist (Tokyo ken)", "production_year" : 2000 }
+> db.movies_table.find({$or:[{production_year:{$eq:2000}},{movie_name:{$eq:"(A)sexual"}}]},{_id:0,movie_genere:0}).skip(5).limit(10)
+{ "movie_name" : "Juror, The", "production_year" : 2000 }
+{ "movie_name" : "Wild Is the Wind", "production_year" : 2000 }
+{ "movie_name" : "Madame Sin", "production_year" : 2000 }
+{ "movie_name" : "Lords of Salem, The", "production_year" : 2000 }
+{ "movie_name" : "Wake", "production_year" : 2000 }
+{ "movie_name" : "Madonna: Truth or Dare", "production_year" : 2000 }
+{ "movie_name" : "Lean on Me", "production_year" : 2000 }
+{ "movie_name" : "Ten Little Indians (Ein Unbekannter rechnet ab) (And Then There Were None)", "production_year" : 2000 }
+{ "movie_name" : "Rough Magic", "production_year" : 2000 }
+{ "movie_name" : "Tokyo Fist (Tokyo ken)", "production_year" : 2000 }
+>
